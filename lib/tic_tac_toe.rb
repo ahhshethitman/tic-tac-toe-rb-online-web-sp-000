@@ -1,3 +1,7 @@
+#Tic tac toe game#
+
+
+#Constant for the winning combinations
 WIN_COMBINATIONS = [
   [0, 1, 2],
   [3, 4, 5],
@@ -9,6 +13,7 @@ WIN_COMBINATIONS = [
   [6, 4, 2]
 ]
 
+#actual game board with (board being an array you can store the value or moves)
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -17,10 +22,12 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
+#converts user input from string to integer
 def input_to_index(user_input)
   user_input.to_i - 1
 end
 
+#
 def move(board, index, current_player)
   board[index] = current_player
 end
