@@ -27,19 +27,19 @@ def input_to_index(user_input)
   user_input.to_i - 1
 end
 
-#
+#move takes in 3 arguments board position, index , and which player is going
 def move(board, index, current_player)
   board[index] = current_player
 end
-
+#position_taken takes 2 arguments board and index, checks to see if the position is taken
 def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
-
+#valid_move checks to see if what the users move is, is valid
 def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board, index)
 end
-
+#turn_count runs method board.each on index to update the turn count
 def turn_count(board)
   turn = 0
   board.each do |index|
@@ -50,8 +50,9 @@ def turn_count(board)
   return turn
 end
 
+#current_player creates local var num_turns = turn_count(board), if num_turns is even "O" went
 def current_player(board)
-  #if the turn count is an even number, that means O just went, so the next/current player is X
+
   num_turns = turn_count(board)
   if num_turns % 2 == 0
     player = "X"
