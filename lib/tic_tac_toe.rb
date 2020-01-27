@@ -62,6 +62,8 @@ def current_player(board)
   return player
 end
 
+#turn checks to see if a players turn is valid, if it is then calls method move and updates board
+#else it re-runs turn prompting user to go again
 def turn(board)
   puts "Please choose a number 1-9:"
   user_input = gets.chomp
@@ -74,7 +76,7 @@ def turn(board)
     turn(board)
   end
 end
-
+#won? checks winning combinations 
 def won?(board)
   WIN_COMBINATIONS.each {|win_combo|
     index_0 = win_combo[0]
