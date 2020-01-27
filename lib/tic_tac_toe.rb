@@ -76,7 +76,7 @@ def turn(board)
     turn(board)
   end
 end
-#won? checks winning combinations 
+#won? checks winning combinations by cross referencing the  constant,
 def won?(board)
   WIN_COMBINATIONS.each {|win_combo|
     index_0 = win_combo[0]
@@ -96,10 +96,12 @@ def won?(board)
   return false
 end
 
+#full? checks if board is full
 def full?(board)
   board.all? {|index| index == "X" || index == "O"}
 end
 
+#draw? checks(board) for a draw
 def draw?(board)
   if !won?(board) && full?(board)
     return true
@@ -108,6 +110,7 @@ def draw?(board)
   end
 end
 
+#checks if the game is over by comparing method won vs draw
 def over?(board)
   if won?(board) || draw?(board)
     return true
@@ -116,6 +119,7 @@ def over?(board)
   end
 end
 
+#determines the winner 
 def winner (board)
   index = []
   index = won?(board)
@@ -130,6 +134,8 @@ def winner (board)
   end
 end
 
+#play method runs helper method over to check if game is over, and then runs turn, the checks if 
+#won congratualate the winner and if draw output Cats game
 def play(board)
   until over?(board) == true
     turn(board)
